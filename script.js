@@ -72,20 +72,28 @@ prevBtnFourth.addEventListener("click", function(event){
 });
 
 document.getElementById('registrationForm').addEventListener('submit', function(event) {
- event.preventDefault(); // Prevent the default form submission
+  event.preventDefault(); 
+
   const formData = {
-    Name: document.getElementById('Name').value,
-    Regno: document.getElementById('Regno').value,
-    email: document.getElementById('email').value,
-    phoneNumber: document.getElementById('phoneNumber').value,
-    Program: document.getElementById('Program').value,
-    Department: document.getElementById('Department').value,
-    Choice1: document.getElementById('Choice-1').value,
-    Choice2: document.getElementById('Choice-2').value,
-    linkedin : document.getElementById('linkedin').value,
-    github: document.getElementById('Github').value,
+      Name: document.getElementById('Name').value,
+      Regno: document.getElementById('Regno').value,
+      email: document.getElementById('email').value,
+      phoneNumber: document.getElementById('phoneNumber').value,
+      Program: document.getElementById('Program').value,
+      Department: document.getElementById('Department').value,
+      Choice1: document.getElementById('Choice-1').value,
+      Choice2: document.getElementById('Choice-2').value,
+      linkedin: document.getElementById('linkedin').value,
+      github: document.getElementById('Github').value,
   };
 
-  console.log(formData); 
-  // You can send this data to your server or process it as needed
+  fetch('https://registration-website-mlsa.onrender.com', {  // Replace with your actual Render backend URL
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+  })
+  .then(response => response.json())
+  .then(data => alert(data.message))
+  .catch(error => console.error('Error:', error));
 });
+
