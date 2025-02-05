@@ -87,13 +87,19 @@ document.getElementById('registrationForm').addEventListener('submit', function(
       github: document.getElementById('Github').value,
   };
 
-  fetch('https://registration-website-mlsa-task.onrender.com', {  // Replace with your actual Render backend URL
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData),
-  })
-  .then(response => response.json())
-  .then(data => alert(data.message))
-  .catch(error => console.error('Error:', error));
+  fetch('https://registration-website-mlsa-task.onrender.com', { // Update with actual backend URL
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData),
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+})
+.then(data => alert(data.message))
+.catch(error => console.error('Error:', error));
 });
+
 
