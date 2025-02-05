@@ -8,12 +8,12 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Serve static files from "public" (if needed)
+// Serve static files (CSS, JS, etc.) from the "public" directory
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Route to serve frontend (if hosting it from backend)
+// Route to serve index.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Handle form submission
