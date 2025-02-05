@@ -87,7 +87,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
       github: document.getElementById('Github').value,
   };
 
-  fetch('https://registration-website-mlsa.onrender.com', {  // Replace with your actual Render backend URL
+  fetch('https://registration-website-mlsa-task.onrender.com', {  // Replace with your actual Render backend URL
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
