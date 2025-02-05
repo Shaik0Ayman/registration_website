@@ -86,7 +86,7 @@ document.getElementById('registrationForm').addEventListener('submit', function(
       linkedin: document.getElementById('linkedin').value,
       github: document.getElementById('Github').value,
   };
-  fetch('https://registration-website-mlsa-task.onrender.com/register', { // ✅ Corrected URL
+fetch('https://registration-website-mlsa-task.onrender.com/register', { // ✅ Corrected URL
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(formData),
